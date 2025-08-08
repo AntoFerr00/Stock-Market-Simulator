@@ -75,37 +75,6 @@ Bash
 npm start
 ```
 
-```bash
-# In the stock-server directory
-node server.js
-```
-
-You should see the following output, indicating the server is running:
-🚀 Stock simulator server running on http://localhost:3001
-
-Terminal 2: Start the Frontend Application
-Bash
-
-```bash
-# In the stock-simulator directory
-npm start
-```
-
-```bash
-# In the stock-server directory
-node server.js
-```
-
-You should see the following output, indicating the server is running:
-🚀 Stock simulator server running on http://localhost:3001
-
-Terminal 2: Start the Frontend Application
-
-```bash
-# In the stock-simulator directory
-npm start
-```
-
 This will automatically open your default web browser to http://localhost:3000.
 
 How to Use
