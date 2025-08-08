@@ -1,0 +1,353 @@
+/* src/App.css */
+/* This file contains all the styles for the application. */
+
+/* --- Global Styles & Variables --- */
+:root {
+  --background-color: #f3f4f6;
+  --card-background: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --primary-blue: #3b82f6;
+  --positive-green: #22c55e;
+  --negative-red: #ef4444;
+  --warning-yellow: #eab308;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+/* --- App Layout --- */
+.app-container {
+  min-height: 100vh;
+}
+.app-container.loading, .app-container.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app-header {
+  background-color: var(--card-background);
+  box-shadow: var(--shadow);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.app-header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-blue);
+  margin: 0;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+.logout-icon {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.logout-icon:hover {
+  color: var(--negative-red);
+}
+.app-main {
+  padding: 2rem;
+}
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  .layout-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+.main-column, .sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* --- Card Component --- */
+.card {
+  background-color: var(--card-background);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.card-subtitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --- Stats Grid --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.stat-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.stat-card-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.stat-card-icon {
+  padding: 0.75rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stat-card-title {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.stat-card-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+.stat-card-change {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* --- Tables --- */
+.table-container {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th, td {
+  padding: 0.75rem;
+  vertical-align: middle;
+}
+thead {
+  border-bottom: 2px solid var(--border-color);
+}
+th {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+tbody tr {
+  border-bottom: 1px solid var(--border-color);
+}
+tbody tr:last-child {
+  border-bottom: none;
+}
+.history-table {
+  max-height: 24rem;
+  overflow-y: auto;
+}
+.history-table thead {
+  position: sticky;
+  top: 0;
+  background-color: var(--card-background);
+}
+
+/* --- Forms & Buttons --- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #f3f4f6;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+input[type="text"]:focus, input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+}
+.trade-toggle {
+  display: flex;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  padding: 0.25rem;
+  margin-bottom: 1rem;
+}
+.trade-toggle button {
+  width: 50%;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.trade-toggle button.active.buy {
+  background-color: var(--positive-green);
+  color: white;
+  box-shadow: var(--shadow);
+}
+.trade-toggle button.active.sell {
+  background-color: var(--negative-red);
+  color: white;
+  box-shadow: var(--shadow);
+}
+.btn-trade {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-trade.buy { background-color: var(--positive-green); }
+.btn-trade.buy:hover { background-color: #16a34a; }
+.btn-trade.sell { background-color: var(--negative-red); }
+.btn-trade.sell:hover { background-color: #dc2626; }
+.btn-trade:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* --- Stock Finder --- */
+.finder-form {
+  display: flex;
+  gap: 0.5rem;
+}
+.finder-form input {
+  flex-grow: 1;
+}
+.finder-form button {
+  padding: 0.75rem;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.finder-form button:hover {
+  background-color: #2563eb;
+}
+.finder-form button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+.finder-result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+}
+.finder-result h4 {
+  font-weight: bold;
+  font-size: 1.125rem;
+  margin: 0;
+}
+.finder-result .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-blue);
+  margin-top: 0.25rem;
+}
+.finder-result .currency {
+  font-size: 0.875rem;
+  font-weight: normal;
+  color: var(--text-secondary);
+}
+
+/* --- Utility Classes --- */
+.font-semibold { font-weight: 600; }
+.text-right { text-align: right; }
+.text-sm { font-size: 0.875rem; }
+.text-muted { color: var(--text-secondary); }
+.positive { color: var(--positive-green); }
+.negative { color: var(--negative-red); }
+.icon-blue { color: var(--primary-blue); }
+.icon-green { color: var(--positive-green); }
+.icon-red { color: var(--negative-red); }
+.icon-yellow { color: var(--warning-yellow); }
+.message {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+.message.error { color: var(--negative-red); }
+.message.success { color: var(--positive-green); }
+.empty-message {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem 0;
+}
+.type-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* --- Spinner --- */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+.spinner {
+  animation: spin 1s linear infinite;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  border-top: 2px solid var(--primary-blue);
+  border-right: 2px solid transparent;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

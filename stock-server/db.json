@@ -1,0 +1,16 @@
+{
+  "users": {
+    "pincopallo": {
+      "hashedPassword": "$2b$10$oJ5mrcUhU377oFa02EsMue3SUYBBg2dfId1VTWWwo4Iqzh2eznNFe"
+    }
+  },
+  "portfolios": {
+    "pincopallo": {
+      "userId": "pincopallo",
+      "cash": 10000,
+      "currency": "EUR",
+      "stocks": {},
+      "history": []
+    }
+  }
+}
